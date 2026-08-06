@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h3>Just a test</h3>
-  </div>
+  <div></div>
 </template>
 
 <script setup lang="ts"></script>
