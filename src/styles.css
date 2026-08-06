@@ -1,0 +1,13 @@
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+body,
+html {
+  @apply m-0 p-0;
+}
