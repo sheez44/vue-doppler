@@ -5,9 +5,9 @@
 <script setup lang="ts">
 import { useDeck } from '@/composables/useDeck'
 
-const { icons } = useDeck()
+const { generateDeck } = useDeck()
 
-console.log(icons)
+generateDeck()
 </script>
 
 <style scoped></style>
