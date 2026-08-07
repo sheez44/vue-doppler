@@ -1,15 +1,19 @@
 <template>
-  <div>Card</div>
+  <div>
+    <ul class="list-none p-0">
+      <li v-for="(icon, index) in icons" :key="index">
+        {{ icon }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { useCards } from '@/composables/useCards'
+import type { IconName } from '@/data/icons'
 
-const { generateCards } = useCards()
-
-const cards = generateCards()
-
-console.log(cards)
+defineProps<{
+  icons: IconName[]
+}>()
 </script>
 
 <style scoped></style>

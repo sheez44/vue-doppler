@@ -1,9 +1,9 @@
 <template>
-  <Card />
+  <GameBoard />
 </template>
 
 <script setup lang="ts">
-import Card from '@/components/Card.vue'
+import GameBoard from '@/components/GameBoard.vue'
 </script>
 
 <style scoped></style>
