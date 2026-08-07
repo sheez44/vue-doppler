@@ -3,11 +3,13 @@
 </template>
 
 <script setup lang="ts">
-import { useDeck } from '@/composables/useDeck'
+import { useCards } from '@/composables/useCards'
 
-const { generateDeck } = useDeck()
+const { generateCards } = useCards()
 
-generateDeck()
+const cards = generateCards()
+
+console.log(cards)
 </script>
 
 <style scoped></style>
