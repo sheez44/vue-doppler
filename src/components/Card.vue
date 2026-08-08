@@ -1,8 +1,8 @@
 <template>
   <div>
-    <ul class="list-none p-0">
+    <ul class="list-none p-0 grid grid-cols-3">
       <li v-for="(icon, index) in icons" :key="index">
-        {{ icon }}
+        <Icon :icon="icon"></Icon>
       </li>
     </ul>
   </div>
@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 import type { IconName } from '@/data/icons'
+import Icon from './Icon.vue'
 
 defineProps<{
   icons: IconName[]

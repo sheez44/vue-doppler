@@ -13,6 +13,7 @@ import { ref } from 'vue'
 const { generateCards } = useCards()
 
 const cards = ref(generateCards())
+console.log(cards.value)
 </script>
 
 <style scoped></style>
