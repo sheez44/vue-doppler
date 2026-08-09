@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-2 gap-4">
-    <Card :icons="cards.cardA"></Card>
-    <Card :icons="cards.cardB"></Card>
+    <Card :icons="cards.cardA" type="reference"></Card>
+    <Card :icons="cards.cardB" type="player"></Card>
   </div>
 </template>
 
@@ -13,7 +13,6 @@ import { ref } from 'vue'
 const { generateCards } = useCards()
 
 const cards = ref(generateCards())
-console.log(cards.value)
 </script>
 
 <style scoped></style>
