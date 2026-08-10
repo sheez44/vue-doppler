@@ -1,18 +1,22 @@
 <template>
   <div class="grid grid-cols-2 gap-4">
     <Card :icons="cards.cardA" type="reference"></Card>
-    <Card :icons="cards.cardB" type="player"></Card>
+    <Card :icons="cards.cardB" type="player" v-on:handleIconClick="handleClick"></Card>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useCards } from '@/composables/useCards'
 import Card from '@/components/Card.vue'
-import { ref } from 'vue'
 
-const { generateCards } = useCards()
+import { useGame } from '@/composables/useGame'
 
-const cards = ref(generateCards())
+const { validateClick, startGame, cards } = useGame()
+
+function handleClick(icon: string) {
+  validateClick(icon)
+}
+
+startGame()
 </script>
 
 <style scoped></style>

@@ -9,6 +9,7 @@
         top: `${positions[index].y}%`,
         transform: 'translate(-50%, -50%)',
       }"
+      @click="$emit('handleIconClick', icon, index)"
     >
       <Icon :icon="icon" :class="playerClass" />
     </li>
@@ -40,6 +41,10 @@ const playerClass = computed(() => {
 const { icons, type } = defineProps<{
   icons: IconName[]
   type: 'reference' | 'player'
+}>()
+
+defineEmits<{
+  handleIconClick: [icon: string, index: number]
 }>()
 </script>
 
