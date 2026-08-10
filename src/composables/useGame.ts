@@ -1,23 +1,18 @@
-import { icons } from '@/data/icons'
 import { useCards } from '@/composables/useCards'
 import { ref } from 'vue'
 
 export function useGame() {
-  const defaultSettings = {
-    iconAmount: 16,
-  }
-
   const { generateCards } = useCards()
 
   const cards = ref(generateCards())
 
-  function startGame(settings) {
+  function startGame() {
     console.log('starting game')
     generateNewCards()
   }
 
   function generateNewCards() {
-    cards.value = generateCards(defaultSettings.iconAmount)
+    cards.value = generateCards()
   }
 
   function validateClick(icon: string) {
