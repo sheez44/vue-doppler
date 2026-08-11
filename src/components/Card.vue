@@ -1,19 +1,24 @@
 <template>
-  <ul class="relative w-100 h-100 max-w-full list-none p-0">
-    <li
-      v-for="(icon, index) in icons"
-      :key="index"
-      class="absolute"
-      :style="{
-        left: `${positions[index].x}%`,
-        top: `${positions[index].y}%`,
-        transform: 'translate(-50%, -50%)',
-      }"
-      @click="$emit('handleIconClick', icon, index)"
-    >
-      <Icon :icon="icon" :class="playerClass" />
-    </li>
-  </ul>
+  <div
+    class="border-2 flex justify-center-safe"
+    :class="type === 'player' ? 'border-amber-300' : 'border-green-500'"
+  >
+    <ul class="relative w-100 h-100 max-w-full list-none p-0">
+      <li
+        v-for="(icon, index) in icons"
+        :key="index"
+        class="absolute"
+        :style="{
+          left: `${positions[index].x}%`,
+          top: `${positions[index].y}%`,
+          transform: 'translate(-50%, -50%)',
+        }"
+        @click="$emit('handleIconClick', icon, index)"
+      >
+        <Icon :icon="icon" :class="playerClass" />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup lang="ts">

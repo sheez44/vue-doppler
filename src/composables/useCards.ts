@@ -24,11 +24,11 @@ export function useCards() {
 
     const sharedIcon = cardA[sharedIconIndex]
 
-    const cardB = shuffleArray([...allIcons.slice(iconsOnCardAmount), sharedIcon])
+    const cardB = [...allIcons.slice(iconsOnCardAmount), sharedIcon]
 
     return {
-      cardA,
-      cardB,
+      cardA: shuffleArray(cardA),
+      cardB: shuffleArray(cardB),
       sharedIcon,
     }
   }
