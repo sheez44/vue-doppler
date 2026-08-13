@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { useGameStore } from '@/stores/useGameStore'
 
 const { settings, round } = defineProps<{
   settings: {
@@ -14,13 +15,13 @@ const { settings, round } = defineProps<{
   round: number
 }>()
 
-const emit = defineEmits<{
-  timeout: []
-}>()
+console.log(settings.timer, round)
 
 const timeRemaining = ref(settings.timer)
 const updateTime = 100
 let timerInterval: ReturnType<typeof setInterval> | null = null
+const game = useGameStore()
+const { endRound } = game
 
 function startTimer() {
   stopTimer()
@@ -33,7 +34,7 @@ function startTimer() {
     if (timeRemaining.value <= 0) {
       timeRemaining.value = 0
       stopTimer()
-      emit('timeout')
+      endRound()
     }
   }, updateTime)
 }

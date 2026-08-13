@@ -3,6 +3,7 @@
     <h3>Just a test</h3>
   </div>
   <RouterLink to="game">start game</RouterLink>
+  <RouterLink to="settings">Settings</RouterLink>
 </template>
 
 <script setup lang="ts"></script>

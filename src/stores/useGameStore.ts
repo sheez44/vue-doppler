@@ -1,15 +1,16 @@
+import { defineStore } from 'pinia'
 import { useCards } from '@/composables/useCards'
 import { ref } from 'vue'
 
-export function useGame() {
+export const useGameStore = defineStore('game', () => {
   const { generateCards } = useCards()
 
   const cards = ref(generateCards())
   const correctIcons = ref(0)
 
-  const settings = {
+  const settings = ref({
     timer: 8000,
-  }
+  })
 
   const maxRounds = ref(10)
   const currentRound = ref(1)
@@ -25,6 +26,7 @@ export function useGame() {
 
   function generateNewCards() {
     cards.value = generateCards()
+    console.log(cards.value)
   }
 
   function endRound() {
@@ -51,12 +53,12 @@ export function useGame() {
   }
 
   return {
-    generateNewCards,
     validateClick,
     startGame,
     endRound,
     cards,
     currentRound,
+    correctIcons,
     settings,
   }
-}
+})

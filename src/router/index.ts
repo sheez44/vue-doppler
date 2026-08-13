@@ -1,5 +1,6 @@
 import GameView from '@/views/GameView.vue'
 import HomeView from '@/views/HomeView.vue'
+import SettingsView from '@/views/SettingsView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -12,8 +13,13 @@ const router = createRouter({
     },
     {
       path: '/game',
-      name: 'gome',
+      name: 'game',
       component: GameView,
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: SettingsView,
     },
   ],
 })

@@ -13,7 +13,7 @@
           top: `${positions[index].y}%`,
           transform: 'translate(-50%, -50%)',
         }"
-        @click="$emit('handleIconClick', icon, index)"
+        @click="validateClick(icon)"
       >
         <Icon :icon="icon" :class="playerClass" />
       </li>
@@ -25,6 +25,9 @@
 import type { IconName } from '@/data/icons'
 import Icon from './Icon.vue'
 import { computed } from 'vue'
+import { useGameStore } from '@/stores/useGameStore'
+
+const { validateClick } = useGameStore()
 
 const positions = [
   { x: 50, y: 50 }, // center
@@ -46,10 +49,6 @@ const playerClass = computed(() => {
 const { icons, type } = defineProps<{
   icons: IconName[]
   type: 'reference' | 'player'
-}>()
-
-defineEmits<{
-  handleIconClick: [icon: string, index: number]
 }>()
 </script>
 

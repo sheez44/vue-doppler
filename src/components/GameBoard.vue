@@ -1,10 +1,10 @@
 <template>
   <div>
     <h1>Current round is: {{ currentRound }}</h1>
-    <ProgressBar :settings="settings" :round="currentRound" @timeout="handleTimeout" />
+    <ProgressBar :settings="settings" :round="currentRound" />
     <div class="grid grid-cols-2 gap-4">
       <Card :icons="cards.cardA" type="reference"></Card>
-      <Card :icons="cards.cardB" type="player" v-on:handleIconClick="handleClick"></Card>
+      <Card :icons="cards.cardB" type="player"></Card>
     </div>
   </div>
 </template>
@@ -12,18 +12,13 @@
 <script setup lang="ts">
 import Card from '@/components/Card.vue'
 import ProgressBar from './ProgressBar.vue'
+import { storeToRefs } from 'pinia'
+import { useGameStore } from '@/stores/useGameStore'
 
-import { useGame } from '@/composables/useGame'
+const game = useGameStore()
 
-const { validateClick, startGame, cards, currentRound, settings, endRound } = useGame()
-
-function handleClick(icon: string) {
-  validateClick(icon)
-}
-
-function handleTimeout() {
-  endRound()
-}
+const { cards, currentRound, settings } = storeToRefs(game)
+const { startGame } = game
 
 startGame()
 </script>
