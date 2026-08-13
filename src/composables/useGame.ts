@@ -6,31 +6,21 @@ export function useGame() {
 
   const cards = ref(generateCards())
   const correctIcons = ref(0)
+
+  const settings = {
+    timer: 8000,
+  }
+
   const maxRounds = ref(10)
   const currentRound = ref(1)
 
-  let roundTimeout: ReturnType<typeof setTimeout> | null = null
-
   function startGame() {
     console.log('starting game')
+
     currentRound.value = 1
     correctIcons.value = 0
 
     generateNewCards()
-    startRoundTimer()
-  }
-
-  function startRoundTimer() {
-    stopRoundTimer()
-
-    roundTimeout = setTimeout(endRound, 8000)
-  }
-
-  function stopRoundTimer() {
-    if (roundTimeout) {
-      clearTimeout(roundTimeout)
-      roundTimeout = null
-    }
   }
 
   function generateNewCards() {
@@ -38,16 +28,15 @@ export function useGame() {
   }
 
   function endRound() {
-    stopRoundTimer()
-
     if (currentRound.value >= maxRounds.value) {
       alert(`The end, your score was: ${correctIcons.value}`)
       return
     }
 
+    console.log('ending round')
+
     currentRound.value++
     generateNewCards()
-    startRoundTimer()
   }
 
   function validateClick(icon: string) {
@@ -65,7 +54,9 @@ export function useGame() {
     generateNewCards,
     validateClick,
     startGame,
+    endRound,
     cards,
     currentRound,
+    settings,
   }
 }
