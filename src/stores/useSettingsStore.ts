@@ -6,7 +6,7 @@ export const useSettingsStore = defineStore('settings', {
   state: () => ({
     timerPerRound: 8,
     numberOfRounds: 10,
-    iconsPerCard: 5,
+    iconsPerCard: 8,
   }),
 
   actions: {

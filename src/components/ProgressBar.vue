@@ -1,30 +1,30 @@
 <template>
   <div>
-    <progress id="progress-bar" :value="timeRemaining" :max="settings.timer"></progress>
+    <progress id="progress-bar" :value="timeRemaining / 1000" :max="settings.timerPerRound" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useGameStore } from '@/stores/useGameStore'
+import { useSettingsStore } from '@/stores/useSettingsStore'
 
-const { settings, round } = defineProps<{
-  settings: {
-    timer: number
-  }
-  round: number
-}>()
+const settings = useSettingsStore()
 
-const timeRemaining = ref(settings.timer)
-const updateTime = 100
-let timerInterval: ReturnType<typeof setInterval> | null = null
 const game = useGameStore()
+const { currentRound } = storeToRefs(game)
 const { endRound } = game
+
+const updateTime = 100
+const timeRemaining = ref(settings.timerPerRound * 1000)
+
+let timerInterval: ReturnType<typeof setInterval> | null = null
 
 function startTimer() {
   stopTimer()
 
-  timeRemaining.value = settings.timer
+  timeRemaining.value = settings.timerPerRound * 1000
 
   timerInterval = setInterval(() => {
     timeRemaining.value -= updateTime
@@ -44,12 +44,9 @@ function stopTimer() {
   }
 }
 
-watch(
-  () => round,
-  () => {
-    startTimer()
-  },
-)
+watch(currentRound, () => {
+  startTimer()
+})
 
 onMounted(() => {
   startTimer()

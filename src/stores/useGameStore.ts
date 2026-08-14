@@ -1,14 +1,15 @@
 import { defineStore } from 'pinia'
 import { useCards } from '@/composables/useCards'
 import { ref } from 'vue'
+import { useSettingsStore } from '@/stores/useSettingsStore'
 
 export const useGameStore = defineStore('game', () => {
   const { generateCards } = useCards()
-
+  const settings = useSettingsStore()
   const cards = ref(generateCards())
   const correctIcons = ref(0)
 
-  const maxRounds = ref(10)
+  const maxRounds = ref(settings.numberOfRounds)
   const currentRound = ref(1)
 
   function startGame() {
@@ -47,6 +48,5 @@ export const useGameStore = defineStore('game', () => {
     cards,
     currentRound,
     correctIcons,
-    settings,
   }
 })

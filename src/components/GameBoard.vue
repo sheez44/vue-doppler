@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Current round is: {{ currentRound }}</h1>
-    <ProgressBar :settings="settings" :round="currentRound" />
+    <ProgressBar />
     <div class="grid grid-cols-2 gap-4">
       <Card :icons="cards.cardA" type="reference"></Card>
       <Card :icons="cards.cardB" type="player"></Card>
@@ -17,7 +17,7 @@ import { useGameStore } from '@/stores/useGameStore'
 
 const game = useGameStore()
 
-const { cards, currentRound, settings } = storeToRefs(game)
+const { cards, currentRound } = storeToRefs(game)
 const { startGame } = game
 
 startGame()

@@ -8,8 +8,8 @@ export function useCards() {
   function generateCards() {
     const settings = useSettingsStore()
 
-    const iconsOnCardAmount = settings.iconAmount / 2
-    const uniqueIconAmount = settings.iconAmount - 1
+    const iconsOnCardAmount = settings.iconsPerCard
+    const uniqueIconAmount = settings.iconsPerCard * 2 - 1
 
     const allIcons = pickRandomUniqueIcons(icons, uniqueIconAmount)
 
