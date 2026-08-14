@@ -15,8 +15,6 @@ const { settings, round } = defineProps<{
   round: number
 }>()
 
-console.log(settings.timer, round)
-
 const timeRemaining = ref(settings.timer)
 const updateTime = 100
 let timerInterval: ReturnType<typeof setInterval> | null = null

@@ -16,8 +16,6 @@ export const useGameStore = defineStore('game', () => {
   const currentRound = ref(1)
 
   function startGame() {
-    console.log('starting game')
-
     currentRound.value = 1
     correctIcons.value = 0
 
@@ -26,7 +24,6 @@ export const useGameStore = defineStore('game', () => {
 
   function generateNewCards() {
     cards.value = generateCards()
-    console.log(cards.value)
   }
 
   function endRound() {
@@ -35,8 +32,6 @@ export const useGameStore = defineStore('game', () => {
       return
     }
 
-    console.log('ending round')
-
     currentRound.value++
     generateNewCards()
   }
@@ -44,9 +39,6 @@ export const useGameStore = defineStore('game', () => {
   function validateClick(icon: string) {
     if (icon === cards.value.sharedIcon) {
       correctIcons.value++
-      console.log('win')
-    } else {
-      console.log('lose')
     }
 
     endRound()
