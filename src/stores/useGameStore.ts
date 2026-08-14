@@ -8,10 +8,6 @@ export const useGameStore = defineStore('game', () => {
   const cards = ref(generateCards())
   const correctIcons = ref(0)
 
-  const settings = ref({
-    timer: 8000,
-  })
-
   const maxRounds = ref(10)
   const currentRound = ref(1)
 

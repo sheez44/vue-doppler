@@ -1,6 +1,6 @@
 import GameView from '@/views/GameView.vue'
 import HomeView from '@/views/HomeView.vue'
-import SettingsView from '@/views/SettingsView.vue'
+import ResultsView from '@/views/ResultsView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -17,9 +17,9 @@ const router = createRouter({
       component: GameView,
     },
     {
-      path: '/settings',
-      name: 'settings',
-      component: SettingsView,
+      path: '/results',
+      name: 'results',
+      component: ResultsView,
     },
   ],
 })

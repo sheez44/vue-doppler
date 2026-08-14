@@ -2,19 +2,14 @@ import { icons } from '@/data/icons'
 import { pickRandomUniqueIcons, generateRandomNumber } from '@/utils/random'
 import { shuffleArray } from '@/utils/shuffle'
 
+import { useSettingsStore } from '@/stores/useSettingsStore'
+
 export function useCards() {
-  const defaultSettings = {
-    iconAmount: 16,
-  }
+  function generateCards() {
+    const settings = useSettingsStore()
 
-  function generateCards(settings = {}) {
-    const mergedSettings = {
-      ...defaultSettings,
-      ...settings,
-    }
-
-    const iconsOnCardAmount = mergedSettings.iconAmount / 2
-    const uniqueIconAmount = mergedSettings.iconAmount - 1
+    const iconsOnCardAmount = settings.iconAmount / 2
+    const uniqueIconAmount = settings.iconAmount - 1
 
     const allIcons = pickRandomUniqueIcons(icons, uniqueIconAmount)
 

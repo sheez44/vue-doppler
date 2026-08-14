@@ -1,12 +1,17 @@
 <template>
-  <div>
-    <h2 class="bold">Game settings</h2>
-    <h3 class=" ">customize your game</h3>
+  <div class="flex flex-col h-full">
+    <Settings />
+
+    <RouterLink
+      to="/game"
+      class="bg-primary text-white hover:bg-primary-light no-underline rounded-2xl inline text-center py-2 mt-auto"
+      >Start game</RouterLink
+    >
   </div>
-  <RouterLink to="game">start game</RouterLink>
-  <RouterLink to="settings">Settings</RouterLink>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Settings from '@/components/Settings.vue'
+</script>
 
 <style scoped></style>
