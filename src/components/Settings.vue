@@ -9,7 +9,7 @@
         <h3 class="font-normal text-sm m-0">customize your game</h3>
       </div>
     </div>
-    <div class="flex flex-col gap-4 bg-white border border-gray-50 rounded-xl p-4 shadow">
+    <div class="flex flex-col gap-4 bg-white border border-gray-50 rounded-xl p-4 shadow mb-4">
       <SettingsRow v-for="setting in gameSettings" :key="setting.id">
         <template #logo>
           <component :is="setting.icon" size="18" />
@@ -30,16 +30,25 @@
         </template>
       </SettingsRow>
     </div>
+    <InfoPane>
+      <template #icon>
+        <Lightbulb size="32" />
+      </template>
+      <template #title>How to play</template>
+      <template #subtext
+        >Find the only matching icon between the cards. Be fast - time is ticking!</template
+      >
+    </InfoPane>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Settings } from '@lucide/vue'
+import { Settings, Lightbulb } from '@lucide/vue'
 import { gameSettings } from '@/data/settings'
 import { useSettingsStore } from '@/stores/useSettingsStore'
 import SettingsRow from '@/components/SettingsRow.vue'
 import Icon from './Icon.vue'
-
+import InfoPane from './InfoPane.vue'
 const settings = useSettingsStore()
 </script>
 
