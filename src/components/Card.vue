@@ -15,7 +15,7 @@
         }"
         @click="validateClick(icon)"
       >
-        <Icon :icon="icon" :class="playerClass" />
+        <GameIcon :icon="icon" :class="playerClass" />
       </li>
     </ul>
   </div>
@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import type { IconName } from '@/data/icons'
-import Icon from './Icon.vue'
+import GameIcon from './GameIcon.vue'
 import { computed } from 'vue'
 import { useGameStore } from '@/stores/useGameStore'
 

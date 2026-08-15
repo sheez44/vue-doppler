@@ -4,7 +4,7 @@ import { Hourglass, Dices, Star } from '@lucide/vue'
 export const gameSettings: GameSettings[] = [
   {
     id: 1,
-    title: 'Timer per round',
+    title: 'Seconds per round',
     info: 'How many seconds per round?',
     options: [5, 8, 11],
     icon: Hourglass,

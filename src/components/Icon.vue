@@ -1,18 +1,23 @@
 <template>
-  <component :is="icons[toPascalCase(icon)]" :size="size" v-if="icons[toPascalCase(icon)]" />
-  <span v-else> Missing icon: {{ icon }} → {{ toPascalCase(icon) }} </span>
+  <div
+    :class="[bgcolor, 'inline-flex rounded-full text-white justify-center items-center']"
+    :style="{
+      width: `${width}px`,
+      height: `${height}px`,
+    }"
+  >
+    <slot />
+  </div>
 </template>
 
 <script setup lang="ts">
-import * as icons from '@lucide/vue'
-import { toPascalCase } from '@/utils/general'
-import { randomIntFromInterval } from '@/utils/random'
-
-const size = randomIntFromInterval(15, 85)
-
-const { icon } = defineProps<{
-  icon: string
+const {
+  height = 48,
+  width = 48,
+  bgcolor = 'bg-primary',
+} = defineProps<{
+  height?: number
+  width?: number
+  bgcolor?: string
 }>()
 </script>
-
-<style scoped></style>
