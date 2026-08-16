@@ -1,5 +1,7 @@
 <template>
-  <div class="grid grid-cols-3 items-center p-pane">
+  <div
+    class="grid grid-cols-3 items-center px-pane py-2 shadow-[0_1px_6px_-2px] shadow-primary relative"
+  >
     <div>
       <p class="my-0 text-sm">Round</p>
       <p class="font-bold text-xl my-0">{{ currentRound }} / {{ maxRounds }}</p>
