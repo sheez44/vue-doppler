@@ -13,7 +13,7 @@
           top: `${positions[index].y}%`,
           transform: 'translate(-50%, -50%)',
         }"
-        @click="validateClick(icon)"
+        @click="type === 'player' && validateClick(icon)"
       >
         <GameIcon :icon="icon" :class="playerClass" />
       </li>
