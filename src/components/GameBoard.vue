@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Current round is: {{ currentRound }}</h1>
-    <ProgressBar />
+    <GameInfoHead />
+
     <div class="grid grid-cols-2 gap-4">
       <Card :icons="cards.cardA" type="reference"></Card>
       <Card :icons="cards.cardB" type="player"></Card>
@@ -11,13 +11,14 @@
 
 <script setup lang="ts">
 import Card from '@/components/Card.vue'
-import ProgressBar from './ProgressBar.vue'
+
 import { storeToRefs } from 'pinia'
 import { useGameStore } from '@/stores/useGameStore'
+import GameInfoHead from './GameInfoHead.vue'
 
 const game = useGameStore()
 
-const { cards, currentRound } = storeToRefs(game)
+const { cards } = storeToRefs(game)
 const { startGame } = game
 
 startGame()

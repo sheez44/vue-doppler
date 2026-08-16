@@ -48,5 +48,6 @@ export const useGameStore = defineStore('game', () => {
     cards,
     currentRound,
     correctIcons,
+    maxRounds,
   }
 })
