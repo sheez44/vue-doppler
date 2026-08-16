@@ -2,7 +2,9 @@
   <div>
     <GameInfoHead />
 
-    <div class="grid grid-cols-2 gap-4">
+    <div
+      class="rounded-br-xl rounded-bl-xl grid grid-cols-2 gap-4 p-pane inset-shadow-sm inset-shadow-indigo-500/50 bg-primary-lighter"
+    >
       <Card :icons="cards.cardA" type="reference"></Card>
       <Card :icons="cards.cardB" type="player"></Card>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-3 pb-8 items-center">
+  <div class="grid grid-cols-3 items-center p-pane">
     <div>
       <p class="my-0 text-sm">Round</p>
       <p class="font-bold text-xl my-0">{{ currentRound }} / {{ maxRounds }}</p>

@@ -65,6 +65,7 @@
   --color-gray: #4b4f5c;
   --color-surface: #f9f6f5;
   --font-poppins: 'Poppins', sans-serif;
+  --spacing-pane: 1rem;
 }
 
 @utility container {

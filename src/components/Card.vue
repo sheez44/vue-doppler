@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-2 flex justify-center-safe"
+    class="border-2 flex justify-center-safe bg-white opacity-95 border-primary rounded-xl"
     :class="type === 'player' ? 'border-amber-300' : 'border-green-500'"
   >
     <ul class="relative w-100 h-100 max-w-full list-none p-0">

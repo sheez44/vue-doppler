@@ -2,7 +2,7 @@
   <div class="h-screen flex flex-col">
     <Navigation />
     <main class="flex-1 flex justify-center items-center">
-      <div class="container py-4 h-5/6 w-1/2 bg-surface rounded-3xl">
+      <div class="w-1/2 bg-surface rounded-3xl">
         <routerView></routerView>
       </div>
     </main>
