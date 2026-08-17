@@ -9,7 +9,7 @@
         <h3 class="font-normal text-sm m-0">customize your game</h3>
       </div>
     </div>
-    <div class="flex flex-col gap-4 bg-white border border-gray-50 rounded-xl p-4 shadow mb-4">
+    <div class="flex flex-col gap-6 bg-white border border-gray-50 rounded-xl p-4 shadow mb-4">
       <SettingsRow v-for="setting in gameSettings" :key="setting.id">
         <template #logo>
           <component :is="setting.icon" size="18" />
@@ -32,7 +32,7 @@
     </div>
     <InfoPane>
       <template #icon>
-        <Lightbulb size="32" />
+        <Lightbulb size="32" color="var(--color-primary)" />
       </template>
       <template #title>How to play</template>
       <template #subtext

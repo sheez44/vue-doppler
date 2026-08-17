@@ -1,20 +1,22 @@
 <template>
   <div>
-    <ResultsPane>
-      <template #icon><Star /></template>
-      <template #title>Score</template>
-      <template #info>{{ correctIcons }} / {{ maxRounds }}</template>
-    </ResultsPane>
-    <ResultsPane>
-      <template #icon><Timer /></template>
-      <template #title>Total time</template>
-      <template #info>{{ totalTime }}</template>
-    </ResultsPane>
-    <ResultsPane>
-      <template #icon><Target /></template>
-      <template #title>Accuracy</template>
-      <template #info>{{ accuracy }}%</template>
-    </ResultsPane>
+    <Pane class="flex divide-x divide-gray-200">
+      <ResultsPane>
+        <template #icon><Star color="var(--color-yellow)" /></template>
+        <template #title>Score</template>
+        <template #info>{{ correctIcons }} / {{ maxRounds }}</template>
+      </ResultsPane>
+      <ResultsPane>
+        <template #icon><Timer color="var(--color-primary)" /></template>
+        <template #title>Total time</template>
+        <template #info>{{ totalTime }}</template>
+      </ResultsPane>
+      <ResultsPane>
+        <template #icon><Target color="var(--color-red)" /></template>
+        <template #title>Accuracy</template>
+        <template #info>{{ accuracy }}%</template>
+      </ResultsPane>
+    </Pane>
   </div>
 </template>
 
@@ -24,6 +26,7 @@ import { Star, Timer, Target } from '@lucide/vue'
 import { useGameStore } from '@/stores/useGameStore'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import Pane from '@/components/Pane.vue'
 
 const game = useGameStore()
 const { elapsedTime } = game

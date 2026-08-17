@@ -51,10 +51,6 @@
 }
 
 @theme {
-  --font-poppins: 'Poppins', sans-serif;
-}
-
-@theme {
   --color-primary: #7c4ddb;
   --color-primary-light: #9b6bff;
   --color-primary-lighter: #f2edff;
@@ -73,7 +69,19 @@
   padding-inline: 1rem;
 }
 
+@utility btn {
+  @apply inline-flex items-center gap-2 justify-center rounded-xl px-4 py-2 text-sm font-semibold border no-underline;
+}
+
+@utility btn-primary {
+  @apply bg-primary border-primary text-white hover:bg-primary-light;
+}
+
+@utility btn-inverted {
+  @apply text-black bg-white border-gray-300 hover:border-black hover:bg-gray-100;
+}
+
 body,
 html {
-  @apply m-0 p-0 bg-blue font-poppins;
+  @apply m-0 p-0 bg-navy font-poppins;
 }
