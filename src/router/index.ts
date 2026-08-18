@@ -1,5 +1,6 @@
 import GameView from '@/views/GameView.vue'
 import HomeView from '@/views/HomeView.vue'
+import LeaderboardView from '@/views/LeaderboardView.vue'
 import ResultsView from '@/views/ResultsView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/results',
       name: 'results',
       component: ResultsView,
+    },
+    {
+      path: '/leaderboard',
+      name: 'leaderboard',
+      component: LeaderboardView,
     },
   ],
 })

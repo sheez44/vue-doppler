@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="flex gap-4">
-      <Icon :height="56" :width="56">
-        <Settings size="32" />
-      </Icon>
-      <div class="mb-6">
-        <h2 class="font-boldbold m-0">Game settings</h2>
-        <h3 class="font-normal text-sm m-0">customize your game</h3>
-      </div>
-    </div>
+    <PaneHeader>
+      <template #icon>
+        <Icon :height="56" :width="56">
+          <Settings size="32" />
+        </Icon>
+      </template>
+      <template #title>Game settings</template>
+      <template #sub-title>customize your game</template>
+    </PaneHeader>
     <div class="flex flex-col gap-6 bg-white border border-gray-50 rounded-xl p-4 shadow mb-4">
       <SettingsRow v-for="setting in gameSettings" :key="setting.id">
         <template #logo>
@@ -47,8 +47,9 @@ import { Settings, Lightbulb } from '@lucide/vue'
 import { gameSettings } from '@/data/settings'
 import { useSettingsStore } from '@/stores/useSettingsStore'
 import SettingsRow from '@/components/SettingsRow.vue'
-import Icon from './Icon.vue'
-import InfoPane from './InfoPane.vue'
+import Icon from '@/components/Icon.vue'
+import InfoPane from '@/components/InfoPane.vue'
+import PaneHeader from '@/components/PaneHeader.vue'
 const settings = useSettingsStore()
 </script>
 
