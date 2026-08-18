@@ -9,8 +9,8 @@
         :key="index"
         class="absolute"
         :style="{
-          left: `${positions[index].x}%`,
-          top: `${positions[index].y}%`,
+          left: `${iconPositions[index].x}%`,
+          top: `${iconPositions[index].y}%`,
           transform: 'translate(-50%, -50%)',
         }"
         @click="type === 'player' && validateClick(icon)"
@@ -29,7 +29,7 @@ import { useGameStore } from '@/stores/useGameStore'
 
 const { validateClick } = useGameStore()
 
-const positions = [
+const iconPositions = [
   { x: 50, y: 50 }, // center
   { x: 32, y: 22 },
   { x: 70, y: 25 },

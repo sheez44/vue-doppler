@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 
 export const useSettingsStore = defineStore('settings', {
   state: () => ({
-    timerPerRound: 8,
+    timerPerRound: 800,
     numberOfRounds: 10,
     iconsPerCard: 8,
   }),
