@@ -46,12 +46,12 @@ const tabs: Tab[] = [
   {
     key: 'this-week',
     label: 'This Week',
-    component: ThisMonth,
+    component: ThisWeek,
   },
   {
     key: 'this-month',
     label: 'This Month',
-    component: ThisWeek,
+    component: ThisMonth,
   },
 ]
 </script>
