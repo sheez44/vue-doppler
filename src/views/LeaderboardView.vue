@@ -9,6 +9,7 @@
       <template #title>Leaderboard</template>
       <template #sub-title>Top players</template>
     </PaneHeader>
+    <Tabs />
   </div>
 </template>
 
@@ -16,6 +17,7 @@
 import PaneHeader from '@/components/PaneHeader.vue'
 import { Trophy } from '@lucide/vue'
 import Icon from '@/components/Icon.vue'
+import Tabs from '@/components/Tabs.vue'
 </script>
 
 <style scoped></style>
