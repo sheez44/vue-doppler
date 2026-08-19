@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="flex flex-nowrap list-none m-0 p-0">
+    <ul class="flex flex-nowrap list-none mx-0 mb-6 p-0">
       <li v-for="(tab, index) in tabs" :key="tab.key">
         <TabButton
           @click="currentActive(tab)"

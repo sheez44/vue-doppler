@@ -6,3 +6,10 @@ export function toPascalCase(str) {
     .replace(/([a-z\d])([a-z\d]*)/gi, (g0, g1, g2) => g1.toUpperCase() + g2.toLowerCase())
     .replace(/[^a-z\d]/gi, '')
 }
+
+export function formatTime(seconds: number): string {
+  const minutes = Math.floor(seconds / 60)
+  const remainingSeconds = seconds % 60
+
+  return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`
+}

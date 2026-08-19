@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="m-0 list-none p-0">
+    <ul class="m-0 list-none p-0 divide-y divide-gray-200">
       <LeaderboardRow
         v-for="(player, index) in rankedPlayers"
         :key="player.id"
@@ -31,9 +31,9 @@ const fetchLeaderboard = async () => {
   }
 }
 
-const rankedPlayers = computed(() => {
-  return [...players.value].sort((a, b) => b.score - a.score).sort((a, b) => b.time - a.time)
-})
+const rankedPlayers = computed(() =>
+  [...players.value].sort((a, b) => (b.score !== a.score ? b.score - a.score : a.time - b.time)),
+)
 onMounted(() => {
   fetchLeaderboard()
 })

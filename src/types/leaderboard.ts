@@ -1,8 +1,8 @@
 export type LeaderBoard = {
   id: number
   profile: string
-  name: string
+  username: string
   date: string
   score: number
-  time: string
+  time: number
 }
