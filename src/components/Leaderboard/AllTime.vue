@@ -1,7 +1,9 @@
 <template>
-  <div>all time</div>
+  <div><LeaderBoardFrame /></div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LeaderBoardFrame from './LeaderBoardFrame.vue'
+</script>
 
 <style scoped></style>
