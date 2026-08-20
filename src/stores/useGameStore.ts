@@ -7,12 +7,12 @@ import router from '@/router'
 export const useGameStore = defineStore('game', () => {
   const { generateCards } = useCards()
   const settings = useSettingsStore()
+
   const cards = ref(generateCards())
   const correctIcons = ref(0)
   const gameStarted = ref(false)
   const gameStartedTime = ref(0)
   const gameEndTime = ref(0)
-  const maxRounds = ref(settings.numberOfRounds)
   const currentRound = ref(1)
 
   function startGame() {
@@ -32,7 +32,7 @@ export const useGameStore = defineStore('game', () => {
   }
 
   function endRound() {
-    if (currentRound.value >= maxRounds.value) {
+    if (currentRound.value >= settings.numberOfRounds) {
       stopGame()
       router.push('/results')
       return
@@ -73,6 +73,5 @@ export const useGameStore = defineStore('game', () => {
     cards,
     currentRound,
     correctIcons,
-    maxRounds,
   }
 })
