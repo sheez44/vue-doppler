@@ -1,7 +1,9 @@
 <template>
   <div>
     <ul class="m-0 list-none p-0 divide-y divide-gray-200">
+      <li v-if="loadingState">loading......</li>
       <LeaderboardRow
+        v-else
         v-for="(player, index) in rankedPlayers"
         :key="player.id"
         :rank="index + 1"
@@ -14,22 +16,11 @@
 <script setup lang="ts">
 import LeaderboardRow from '@/components/Leaderboard/LeaderboardRow.vue'
 import { ref, onMounted, computed } from 'vue'
-import type { LeaderBoard } from '@/types/leaderboard'
+import { useLeaderBoard } from '@/composables/useLeaderBoard'
 
-const loading = ref(false)
-const players = ref<LeaderBoard[]>([])
-const fetchLeaderboard = async () => {
-  loading.value = true
+const { loading, fetchLeaderboard, players } = useLeaderBoard()
 
-  try {
-    await new Promise((resolve) => setTimeout(resolve, 500))
-
-    const response = await fetch('http://localhost:3333/players')
-    players.value = await response.json()
-  } finally {
-    loading.value = false
-  }
-}
+const loadingState = ref(loading || false)
 
 const rankedPlayers = computed(() =>
   [...players.value].sort((a, b) => (b.score !== a.score ? b.score - a.score : a.time - b.time)),
