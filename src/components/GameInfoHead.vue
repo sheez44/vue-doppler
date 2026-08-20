@@ -6,8 +6,11 @@
       <p class="my-0 text-sm">Round</p>
       <p class="font-bold text-xl my-0">{{ currentRound }} / {{ numberOfRounds }}</p>
     </div>
+    <div>
+      <ProgressBar />
+      <p class="text-center m-0 text-sm font-semibold">Find the matching icon!</p>
+    </div>
 
-    <ProgressBar />
     <div>
       <p class="my-0 text-sm text-right">correct</p>
       <p class="font-bold text-xl my-0 text-right">{{ correctIcons }}</p>

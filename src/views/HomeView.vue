@@ -1,6 +1,16 @@
 <template>
   <div class="flex flex-col h-full p-4">
-    <Settings />
+    <GameSettings />
+
+    <InfoPane>
+      <template #icon>
+        <Lightbulb size="32" color="var(--color-primary)" />
+      </template>
+      <template #title>How to play</template>
+      <template #subtext
+        >Find the only matching icon between the cards. Be fast - time is ticking!</template
+      >
+    </InfoPane>
 
     <RouterLink
       to="/game"
@@ -11,7 +21,9 @@
 </template>
 
 <script setup lang="ts">
-import Settings from '@/components/Settings.vue'
+import InfoPane from '@/components/InfoPane.vue'
+import GameSettings from '@/components/GameSettings.vue'
+import { Lightbulb } from '@lucide/vue'
 </script>
 
 <style scoped></style>

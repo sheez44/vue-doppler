@@ -14,7 +14,7 @@ export const gameSettings: GameSettings[] = [
     id: 2,
     title: 'Number of rounds',
     info: 'How many rounds to play',
-    options: [6, 8, 10, 12, 15, 20, 25],
+    options: [1, 6, 8, 10, 12, 15, 20, 25],
     icon: Dices,
     key: 'numberOfRounds',
   },

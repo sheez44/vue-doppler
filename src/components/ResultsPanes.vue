@@ -4,7 +4,7 @@
       <ResultsPane>
         <template #icon><Star color="var(--color-yellow)" /></template>
         <template #title>Score</template>
-        <template #info>{{ correctIcons }} / {{ maxRounds }}</template>
+        <template #info>{{ correctIcons }} / {{ numberOfRounds }}</template>
       </ResultsPane>
       <ResultsPane>
         <template #icon><Timer color="var(--color-primary)" /></template>
@@ -27,13 +27,16 @@ import { useGameStore } from '@/stores/useGameStore'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import Pane from '@/components/Pane.vue'
+import { useSettingsStore } from '@/stores/useSettingsStore.ts'
 
+const settings = useSettingsStore()
 const game = useGameStore()
 const { elapsedTime } = game
-const { correctIcons, maxRounds } = storeToRefs(game)
+const { correctIcons } = storeToRefs(game)
+const { numberOfRounds } = storeToRefs(settings)
 
 const accuracy = computed(() => {
-  return Math.round((correctIcons.value / maxRounds.value) * 100)
+  return Math.round((correctIcons.value / numberOfRounds.value) * 100)
 })
 
 const totalTime = computed(() => {

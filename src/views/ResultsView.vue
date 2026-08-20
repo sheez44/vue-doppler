@@ -14,10 +14,10 @@
       <template #subtext>You beat your previous score of 6</template>
     </InfoPane>
     <div class="flex gap-4">
-      <RouterLink to="/game" class="btn btn-inverted w-full"
+      <RouterLink :to="{ name: 'home' }" class="btn btn-inverted w-full"
         >Play Again <RotateCcw size="16" color="var(--color-black)"
       /></RouterLink>
-      <RouterLink to="/leaderboard" class="btn btn-primary w-full"
+      <RouterLink :to="{ name: 'leaderboard' }" class="btn btn-primary w-full"
         >View leaderboard <Trophy size="16"
       /></RouterLink>
     </div>
